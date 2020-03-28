@@ -1,8 +1,8 @@
-import React from "react";
+import React, {lazy} from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import CoronaWalrus from "./CoronaWalrus";
-import Home from "./Home";
+const CoronaWalrus = lazy(() => import("./CoronaWalrus"));
+const Home = lazy(() => import("./Home"));
 
 const App: React.FC = () => (
   <Router>
