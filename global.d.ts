@@ -1,4 +1,6 @@
 import {CSSProperties} from "react";
 
-export type Styles = {[key: string]: CSSProperties};
+declare global {
+  type Styles = {[key: string]: CSSProperties}
+}
 

@@ -1,7 +1,6 @@
 import React from "react";
-import {Styles} from "../../../global";
 
-const styles: Styles= {
+const styles: Styles = {
   tile: {
     height: 100,
     width: 100,
