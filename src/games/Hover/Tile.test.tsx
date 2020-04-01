@@ -4,20 +4,26 @@ import Tile from './Tile';
 import target from './event.target.boundingClientRect.json';
 
 describe('Tile', () => {
-  it('returns top when tile is hovered from top', () => {
+  it.each([
+    ['top'],
+    ['bottom'],
+    ['left'],
+    ['right']
+  ])('returns %s when tile is hovered from direction', (direction) => {
     const onHover = jest.fn();
     const getBoundingClientRect = jest.fn().mockReturnValue(target);
     const { getByTestId } = render(<Tile onHover={onHover} />);
     const tile = getByTestId('tile');
 
     fireEvent.mouseOver(tile, {
-      clientY: target.top,
+      // @ts-ignore
+      clientY: target[direction],
       target: {
         getBoundingClientRect
       }
     });
 
     expect(onHover).toHaveBeenCalledTimes(1);
-    expect(onHover).toHaveBeenCalledWith('top');
+    expect(onHover).toHaveBeenCalledWith(direction);
   });
 });
