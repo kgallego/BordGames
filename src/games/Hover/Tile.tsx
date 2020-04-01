@@ -37,7 +37,7 @@ const Tile: React.FC<TileProps> = (props: TileProps) => {
 
   return (
     <div>
-      <div style={styles.tile} onMouseOver={handleHover} data-testid="tile">Some image</div>
+      <div style={styles.tile} onMouseOver={handleHover} data-testid="tile" />
     </div>
   )
 };

@@ -1,0 +1,24 @@
+@keyframes rotate-top {
+    100% {
+        filter: flipV();
+        background: tomato;
+    }
+}
+@keyframes rotate-bottom {
+    100% {
+        filter: flipV();
+        background: orange;
+    }
+}
+@keyframes rotate-left {
+    100% {
+        filter: flipH();
+        background: palegreen;
+    }
+}
+@keyframes rotate-right {
+    100% {
+        filter: flipH();
+        background: aquamarine;
+    }
+}
