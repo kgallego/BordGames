@@ -1,39 +1,21 @@
-import React, {useState} from "react";
+import React from "react";
 import Tile from "./Tile";
-import styled, {keyframes} from 'styled-components';
+import './animations.css';
 
 const TileContainer: React.FC = () => {
-  const [taco, setTaco] = useState('46deg');
-  // const styles: Styles = {
-  //   container: {
-  //     transform: `perspective(500px) rotateX(${taco}) rotateY(0deg) rotateZ(0deg)`,
-  //   }
-  // };
-
-  const rotate = keyframes`
-    0% {
-      height: 200px;
-      transform: perspective(500px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  const styles: Styles = {
+    container: {
+      animation: `rotate .4s ease-in-out 0s forwards`,
     }
-    100% {
-      transform: perspective(500px) rotateX(90deg) rotateY(0deg) rotateZ(0deg);
-      height: 600px;
-    }
-  `;
-
-
-  const Box = styled.div`
-    animation: ${rotate} 2s ease-in-out 0s forwards;
-  `;
+  };
 
   const handleHover = (direction: string) => {
-    setTaco('60deg');
   };
 
   return (
-    <Box>
+    <div style={styles.container}>
       <Tile onHover={handleHover}/>
-    </Box>
+    </div>
   )
 };
 
