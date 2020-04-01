@@ -1,17 +1,21 @@
 import React from "react";
+import Tile from "./Tile";
 
 const styles: Styles = {
-  tile: {
-    height: 100,
-    width: 100,
-    backgroundColor: 'red'
+  game: {
+    backgroundColor: 'grey'
   }
 };
 
 const Hover: React.FC = () => {
+  const handleHover = (direction: string) => {
+    // handle animation
+    // extract to tile container
+  };
+
   return (
-    <div>
-      <div style={styles.tile} data-testid="tile">Some image</div>
+    <div style={styles.game}>
+      <Tile onHover={handleHover}/>
     </div>
   )
 };
