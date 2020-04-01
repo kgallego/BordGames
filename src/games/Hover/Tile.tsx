@@ -12,26 +12,28 @@ interface TileProps {
   onHover: (direction: string) => void;
 }
 
+interface HoverLocation {
+  direction: string;
+  originOffset: number
+}
+
 const Tile: React.FC<TileProps> = (props: TileProps) => {
   const {onHover} = props;
 
   const handleHover = (e: any) => {
     const tile = e.target.getBoundingClientRect();
-    const top = Math.abs(e.clientY - tile.top);
-    const bottom = Math.abs(e.clientY - tile.bottom);
-    const left = Math.abs(e.clientX - tile.left);
-    const right = Math.abs(e.clientX - tile.right);
-
-    const coords = [
-      {val: top, dir: 'top'},
-      {val: bottom, dir: 'bottom'},
-      {val: left, dir: 'left'},
-      {val: right, dir: 'right'},
+    const coords: HoverLocation[] = [
+      {direction: 'top', originOffset: Math.abs(e.clientY - tile.top)},
+      {direction: 'bottom', originOffset: Math.abs(e.clientY - tile.bottom)},
+      {direction: 'left', originOffset: Math.abs(e.clientX - tile.left)},
+      {direction: 'right', originOffset: Math.abs(e.clientX - tile.right)},
     ];
 
-    const direction = coords.reduce((acc, current) => acc.val < current.val ? acc : current);
+    const minimum = (acc: any, current: any) => acc.originOffset < current.originOffset ? acc : current;
+    const hover = coords.reduce(minimum);
 
-    onHover(direction.dir);
+    console.log(hover.direction);
+    onHover(hover.direction);
   };
 
   return (
