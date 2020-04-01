@@ -17,19 +17,21 @@ const Tile: React.FC<TileProps> = (props: TileProps) => {
 
   const handleHover = (e: any) => {
     const tile = e.target.getBoundingClientRect();
+    const top = Math.abs(e.clientY - tile.top);
+    const bottom = Math.abs(e.clientY - tile.bottom);
+    const left = Math.abs(e.clientX - tile.left);
+    const right = Math.abs(e.clientX - tile.right);
 
-    const cooridanates = {
-      top: Math.abs(e.clientY - tile.top),
-      bottom: Math.abs(e.clientY - tile.bottom),
-      left: Math.abs(e.clientX - tile.left),
-      right: Math.abs(e.clientX - tile.right),
-    };
+    const coords = [
+      {val: top, dir: 'top'},
+      {val: bottom, dir: 'bottom'},
+      {val: left, dir: 'left'},
+      {val: right, dir: 'right'},
+    ];
 
-    const value = Math.min(...Object.values(cooridanates));
-    const direction = Object.keys(cooridanates).filter(coordinate => cooridanates[coordinate] == value);
+    const direction = coords.reduce((acc, current) => acc.val < current.val ? acc : current);
 
-    console.log(...direction);
-    onHover(...direction);
+    onHover(direction.dir);
   };
 
   return (
