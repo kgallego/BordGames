@@ -11,6 +11,10 @@ const Hover: React.FC = () => {
   return (
     <div style={styles.game}>
       <TileContainer />
+      <TileContainer />
+      <TileContainer />
+      <TileContainer />
+      <TileContainer />
     </div>
   )
 };

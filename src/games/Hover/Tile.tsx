@@ -4,7 +4,6 @@ const styles: Styles = {
   tile: {
     height: 100,
     width: 100,
-    backgroundColor: 'red'
   }
 };
 

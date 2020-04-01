@@ -1,11 +1,36 @@
-@keyframes rotate {
+@keyframes rotate-top {
     0% {
-        transform: perspective(400px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-    }
-    65% {
-        transform: perspective(400px) rotateX(90deg) rotateY(0deg) rotateZ(0deg);
+        transform: perspective(400px) rotateX(0deg) rotateY(0deg);
     }
     100% {
-        transform: perspective(400px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+        transform: perspective(400px) rotateX(180deg) rotateY(0deg);
+        background: tomato;
+    }
+}
+@keyframes rotate-bottom {
+    0% {
+        transform: perspective(400px) rotateX(180deg) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(400px) rotateX(0deg) rotateY(0deg);
+        background: orange;
+    }
+}
+@keyframes rotate-left {
+    0% {
+        transform: perspective(400px) rotateX(0deg) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(400px) rotateX(0deg) rotateY(180deg);
+        background: palegreen;
+    }
+}
+@keyframes rotate-right {
+    0% {
+        transform: perspective(400px) rotateX(0deg) rotateY(180deg);
+    }
+    100% {
+        transform: perspective(400px) rotateX(0deg) rotateY(0deg);
+        background: aquamarine;
     }
 }
