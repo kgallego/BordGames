@@ -5,12 +5,12 @@ import target from './event.target.boundingClientRect.json';
 
 describe('Tile', () => {
   it.each`
-    direction
-    ${'top'}
-    ${'bottom'}
-    ${'left'}
-    ${'right'}
-  `('returns $direction when tile is hovered from $direction', ({direction}) => {
+    direction   |   axis
+    ${'top'}    |   ${'clientY'}
+    ${'bottom'} |   ${'clientY'}
+    ${'left'}   |   ${'clientX'}
+    ${'right'}  |   ${'clientX'}
+  `('returns $direction when tile is hovered from $direction', ({direction, axis}) => {
     const onHover = jest.fn();
     const getBoundingClientRect = jest.fn().mockReturnValue(target);
     const { getByTestId } = render(<Tile onHover={onHover} />);
@@ -18,7 +18,7 @@ describe('Tile', () => {
 
     fireEvent.mouseOver(tile, {
       // @ts-ignore
-      clientY: target[direction],
+      [axis]: target[direction],
       target: {
         getBoundingClientRect
       }
