@@ -3,7 +3,7 @@ import TileContainer from "./TileContainer";
 
 const styles: Styles = {
   game: {
-    backgroundColor: 'grey'
+    backgroundColor: 'grey',
   }
 };
 
